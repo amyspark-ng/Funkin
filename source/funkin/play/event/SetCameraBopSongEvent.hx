@@ -87,7 +87,7 @@ class SetCameraBopSongEvent extends SongEvent
         step: 0.25,
         type: SongEventFieldType.FLOAT,
         units: 'beats',
-        tooltip: '.',
+        tooltip: 'How many beats to offset Zoom Rate by.',
       },
       {
         name: 'rate',
