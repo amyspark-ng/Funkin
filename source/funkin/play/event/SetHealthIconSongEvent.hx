@@ -96,19 +96,25 @@ class SetHealthIconSongEvent extends SongEvent
         title: 'Character',
         defaultValue: DEFAULT_CHAR,
         type: SongEventFieldType.ENUM,
-        keys: ['Player' => 0, 'Opponent' => 1],
+        tooltip: 'Wheter to set it to the player or the opponent.',
+        keys: [
+          'Player' => 0,
+          'Opponent' => 1
+        ],
       },
       {
         name: 'id',
         title: 'Health Icon ID',
         defaultValue: Constants.DEFAULT_HEALTH_ICON,
         type: SongEventFieldType.STRING,
+        tooltip: 'The ID for the icon.',
       },
       {
         name: 'shouldBop',
         title: 'Should Bop?',
         defaultValue: DEFAULT_SHOULDBOP,
         type: SongEventFieldType.BOOL,
+        tooltip: 'Wheter the icon should bop or not.',
       },
       {
         name: 'scale',
@@ -116,36 +122,42 @@ class SetHealthIconSongEvent extends SongEvent
         defaultValue: DEFAULT_SCALE,
         min: 0,
         type: SongEventFieldType.FLOAT,
+        tooltip: 'The scale of the new health icon.',
       },
       {
         name: 'flipX',
         title: 'Flip X?',
         defaultValue: DEFAULT_FLIPX,
         type: SongEventFieldType.BOOL,
+        tooltip: 'Wheter to flip on the X axis or not.',
       },
       {
         name: 'advanced',
         title: 'Advanced',
         type: SongEventFieldType.FRAME,
         collapsible: true,
+        tooltip: 'Advanced options for setting health icon.',
         children: [
           {
             name: 'isPixel',
             title: 'Is Pixel?',
             defaultValue: DEFAULT_ISPIXEL,
             type: SongEventFieldType.BOOL,
+            tooltip: 'Wheter the icon is pixel or not.',
           },
           {
             name: 'offsetX',
             title: 'X Offset',
             defaultValue: DEFAULT_X_OFFSET,
             type: SongEventFieldType.FLOAT,
+            tooltip: 'The X offset of the icon.',
           },
           {
             name: 'offsetY',
             title: 'Y Offset',
             defaultValue: DEFAULT_Y_OFFSET,
             type: SongEventFieldType.FLOAT,
+            tooltip: 'The X offset of the icon.',
           }
         ]
       }

@@ -118,7 +118,8 @@ class ScrollSpeedEvent extends SongEvent
         min: 0.1,
         step: 0.1,
         type: SongEventFieldType.FLOAT,
-        units: 'x'
+        units: 'x',
+        tooltip: 'Target scroll level.',
       },
       {
         name: 'duration',
@@ -127,13 +128,15 @@ class ScrollSpeedEvent extends SongEvent
         min: 0,
         step: 0.5,
         type: SongEventFieldType.FLOAT,
-        units: 'steps'
+        units: 'steps',
+        tooltip: 'The duration in steps.',
       },
       {
         name: 'ease',
         title: 'Easing Type',
         defaultValue: SongEvent.DEFAULT_EASE,
         type: SongEventFieldType.ENUM,
+        tooltip: 'The easing function to use.',
         keys: [
           'Linear' => 'linear',
           'Instant (Ignores duration)' => 'INSTANT',
@@ -156,27 +159,39 @@ class ScrollSpeedEvent extends SongEvent
         title: 'Easing Direction',
         defaultValue: SongEvent.DEFAULT_EASE_DIR,
         type: SongEventFieldType.ENUM,
-        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+        tooltip: 'Easing function direction (In, Out, InOut).',
+        keys: [
+          'In' => 'In',
+          'Out' => 'Out',
+          'In/Out' => 'InOut'
+        ]
       },
       {
         name: 'advanced',
         title: 'Advanced',
         type: SongEventFieldType.FRAME,
         collapsible: true,
+        tooltip: 'Advanced options for scroll speed event.',
         children: [
           {
             name: 'strumline',
             title: 'Target Strumline',
             defaultValue: DEFAULT_STRUMLINE,
             type: SongEventFieldType.ENUM,
-            keys: ['Both' => 'both', 'Player' => 'player', 'Opponent' => 'opponent']
+            tooltip: 'Which strumline to use.',
+            keys: [
+              'Both' => 'both',
+              'Player' => 'player',
+              'Opponent' => 'opponent'
+            ]
           },
           {
             name: 'absolute',
             title: 'Absolute',
             defaultValue: DEFAULT_ABSOLUTE,
             type: SongEventFieldType.BOOL,
-          }
+            tooltip: 'Wheter to set the scroll speed or use as additive to the previous one.',
+          },
         ]
       }
     ]);

@@ -77,7 +77,8 @@ class SetCameraBopSongEvent extends SongEvent
         min: 0,
         step: 0.1,
         type: SongEventFieldType.FLOAT,
-        units: 'x'
+        units: 'x',
+        tooltip: 'The zoom amount.',
       },
       {
         name: 'offset',
@@ -85,7 +86,8 @@ class SetCameraBopSongEvent extends SongEvent
         defaultValue: Constants.DEFAULT_ZOOM_OFFSET,
         step: 0.25,
         type: SongEventFieldType.FLOAT,
-        units: 'beats'
+        units: 'beats',
+        tooltip: '.',
       },
       {
         name: 'rate',
@@ -94,7 +96,8 @@ class SetCameraBopSongEvent extends SongEvent
         min: 0,
         step: 0.25,
         type: SongEventFieldType.FLOAT,
-        units: 'beats/zoom'
+        units: 'beats/zoom',
+        tooltip: 'Zoom rate (beats/zoom).',
       }
     ]);
   }

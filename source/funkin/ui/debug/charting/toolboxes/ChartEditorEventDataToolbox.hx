@@ -31,7 +31,8 @@ import flixel.FlxG;
 /**
  * The toolbox which allows modifying information like Song Title, Scroll Speed, Characters/Stages, and starting BPM.
  */
-@:access(funkin.ui.debug.charting.ChartEditorState) @:build(haxe.ui.ComponentBuilder.build('assets/exclude/data/ui/chart-editor/toolboxes/event-data.xml'))
+@:access(funkin.ui.debug.charting.ChartEditorState)
+@:build(haxe.ui.ComponentBuilder.build('assets/exclude/data/ui/chart-editor/toolboxes/event-data.xml'))
 class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
 {
   var toolboxEventsEventKind:DropDown;
@@ -152,7 +153,12 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
 
     if (newDropdownElement == null)
     {
-      trace(' WARNING '.bold().bg_yellow() + ' CHART EDITOR - Event kind "${chartEditorState.eventKindToPlace}" not found in dropdown lookup. Attempting to proceed...');
+      trace(
+        ' WARNING '
+          .bold()
+          .bg_yellow()
+        + ' CHART EDITOR - Event kind "${chartEditorState.eventKindToPlace}" not found in dropdown lookup. Attempting to proceed...'
+      );
       newDropdownElement = toolboxEventsEventKind.dataSource.get(0);
     }
     else if (toolboxEventsEventKind.value != newDropdownElement || lastEventKind != toolboxEventsEventKind.value.id)
@@ -262,6 +268,7 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
         case INTEGER:
           var numberStepper:NumberStepper = new NumberStepper();
           numberStepper.id = field.name;
+          numberStepper.tooltip = field.tooltip;
           numberStepper.step = field.step ?? 1.0;
           if (field.min != null) numberStepper.min = field.min;
           if (field.max != null) numberStepper.max = field.max;
@@ -270,6 +277,7 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
         case FLOAT:
           var numberStepper:NumberStepper = new NumberStepper();
           numberStepper.id = field.name;
+          numberStepper.tooltip = field.tooltip;
           numberStepper.step = field.step ?? 0.1;
           if (field.min != null) numberStepper.min = field.min;
           if (field.max != null) numberStepper.max = field.max;
@@ -278,11 +286,13 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
         case BOOL:
           var checkBox:CheckBox = new CheckBox();
           checkBox.id = field.name;
+          checkBox.tooltip = field.tooltip;
           if (field.defaultValue != null) checkBox.selected = field.defaultValue;
           input = checkBox;
         case ENUM:
           var dropDown:DropDown = new DropDown();
           dropDown.id = field.name;
+          dropDown.tooltip = field.tooltip;
           dropDown.width = 150.0;
           dropDown.dropdownSize = 10;
           dropDown.dropdownWidth = 157;
@@ -296,7 +306,10 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
           for (optionName in field.keys.keys())
           {
             var optionValue:Null<Dynamic> = field.keys.get(optionName);
-            dropDown.dataSource.add({value: optionValue, text: optionName});
+            dropDown.dataSource.add({
+              value: optionValue,
+              text: optionName
+            });
           }
 
           dropDown.value = field.defaultValue;
@@ -308,12 +321,14 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
         case STRING:
           input = new TextField();
           input.id = field.name;
+          input.tooltip = field.tooltip;
           if (field.defaultValue != null) input.text = field.defaultValue;
         case FRAME:
           hbox.removeComponent(label, true);
 
           input = new Frame();
           input.id = field.name;
+          input.tooltip = field.tooltip;
           input.text = field.title;
           input.percentWidth = 100;
           if (field.collapsible != null)
@@ -538,9 +553,7 @@ class ChartEditorEventDataToolbox extends ChartEditorBaseToolbox
           }
         }, 1);
       }
-      else if (easeDotImage != null
-        && !_initializing
-        && _easeDotSprites[_dotIndex].frame != null) easeDotImage.resource = _easeDotSprites[_dotIndex].frame;
+      else if (easeDotImage != null && !_initializing && _easeDotSprites[_dotIndex].frame != null) easeDotImage.resource = _easeDotSprites[_dotIndex].frame;
     };
 
     _dotTimer ??= new FlxTimer();

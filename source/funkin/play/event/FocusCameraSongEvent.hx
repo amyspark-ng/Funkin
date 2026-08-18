@@ -180,11 +180,18 @@ class FocusCameraSongEvent extends SongEvent
         title: 'Target',
         defaultValue: DEFAULT_TARGET,
         type: SongEventFieldType.ENUM,
-        keys: ['Position' => -1, 'Player' => 0, 'Opponent' => 1, 'Girlfriend' => 2]
+        tooltip: 'Which caracter to point to.',
+        keys: [
+          'Position' => -1,
+          'Player' => 0,
+          'Opponent' => 1,
+          'Girlfriend' => 2
+        ]
       },
       {
         name: 'x',
         title: 'X Position',
+        tooltip: 'Optional X offset.',
         defaultValue: DEFAULT_X_POSITION,
         step: 10.0,
         type: SongEventFieldType.FLOAT,
@@ -193,6 +200,7 @@ class FocusCameraSongEvent extends SongEvent
       {
         name: 'y',
         title: 'Y Position',
+        tooltip: 'Optional Y offset.',
         defaultValue: DEFAULT_Y_POSITION,
         step: 10.0,
         type: SongEventFieldType.FLOAT,
@@ -201,6 +209,7 @@ class FocusCameraSongEvent extends SongEvent
       {
         name: 'duration',
         title: 'Duration',
+        tooltip: 'The duration in steps the event is gonna take.',
         defaultValue: DEFAULT_DURATION,
         min: 0,
         step: 0.5,
@@ -210,6 +219,7 @@ class FocusCameraSongEvent extends SongEvent
       {
         name: 'ease',
         title: 'Easing Type',
+        tooltip: 'The easing type to use.',
         defaultValue: DEFAULT_CAMERA_EASE,
         type: SongEventFieldType.ENUM,
         keys: [
@@ -235,7 +245,12 @@ class FocusCameraSongEvent extends SongEvent
         title: 'Easing Direction',
         defaultValue: SongEvent.DEFAULT_EASE_DIR,
         type: SongEventFieldType.ENUM,
-        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+        tooltip: 'The direction/acceleration of the easing.',
+        keys: [
+          'In' => 'In',
+          'Out' => 'Out',
+          'In/Out' => 'InOut'
+        ]
       }
     ]);
   }

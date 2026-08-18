@@ -109,7 +109,8 @@ class ZoomCameraSongEvent extends SongEvent
         min: 0,
         step: 0.05,
         type: SongEventFieldType.FLOAT,
-        units: 'x'
+        units: 'x',
+        tooltip: 'Target zoom level.',
       },
       {
         name: 'duration',
@@ -118,13 +119,15 @@ class ZoomCameraSongEvent extends SongEvent
         min: 0,
         step: 0.5,
         type: SongEventFieldType.FLOAT,
-        units: 'steps'
+        units: 'steps',
+        tooltip: 'How long the zoom will be in steps.',
       },
       {
         name: 'ease',
         title: 'Easing Type',
         defaultValue: SongEvent.DEFAULT_EASE,
         type: SongEventFieldType.ENUM,
+        tooltip: 'The easing type to use.',
         keys: [
           'Linear' => 'linear',
           'Instant (Ignores duration)' => 'INSTANT',
@@ -147,20 +150,30 @@ class ZoomCameraSongEvent extends SongEvent
         title: 'Easing Direction',
         defaultValue: SongEvent.DEFAULT_EASE_DIR,
         type: SongEventFieldType.ENUM,
-        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+        tooltip: 'Easing function direction (In, Out, InOut).',
+        keys: [
+          'In' => 'In',
+          'Out' => 'Out',
+          'In/Out' => 'InOut'
+        ]
       },
       {
         name: 'advanced',
         title: 'Advanced',
         type: SongEventFieldType.FRAME,
         collapsible: true,
+        tooltip: 'Advanced option for zoom camera song event.',
         children: [
           {
             name: 'mode',
             title: 'Mode',
             defaultValue: DEFAULT_MODE,
             type: SongEventFieldType.ENUM,
-            keys: ['Stage zoom' => 'stage', 'Absolute zoom' => 'direct']
+            keys: [
+              'Stage zoom' => 'stage',
+              'Absolute zoom' => 'direct'
+            ],
+            tooltip: 'Whether zoom is relative to the stage or absolute zoom.',
           },
           {
             name: 'widescreenScaleX',
@@ -169,7 +182,8 @@ class ZoomCameraSongEvent extends SongEvent
             min: 0,
             max: 1,
             type: SongEventFieldType.FLOAT,
-            units: 'x'
+            units: 'x',
+            tooltip: 'The widescreen X scale.',
           },
           {
             name: 'widescreenScaleY',
@@ -178,7 +192,8 @@ class ZoomCameraSongEvent extends SongEvent
             min: 0,
             max: 1,
             type: SongEventFieldType.FLOAT,
-            units: 'x'
+            units: 'x',
+            tooltip: 'The widescreen Y scale.',
           }
         ]
       }
