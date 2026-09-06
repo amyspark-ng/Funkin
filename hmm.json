@@ -131,7 +131,7 @@
     {
       "name": "hxcpp",
       "type": "git",
-      "ref": "82b5bb7913e2eb8d9e8141da0dd8cd3bdc3f16c5",
+      "ref": "1f4661402afe66ae7bf6a94161148f5285da5c93",
       "url": "https://github.com/FunkinCrew/hxcpp"
     },
     {
@@ -165,7 +165,7 @@
     {
       "name": "hxvlc",
       "type": "haxelib",
-      "version": "2.3.0"
+      "version": "2.3.1"
     },
     {
       "name": "json2object",
@@ -187,7 +187,7 @@
     {
       "name": "lime",
       "type": "git",
-      "ref": "e5f72395e8554d803b6d33476f8d04fa3df1aacf",
+      "ref": "a79628424a346100309cbcb74094f85342105c90",
       "url": "https://github.com/FunkinCrew/lime"
     },
     {
@@ -199,13 +199,13 @@
     {
       "name": "openfl",
       "type": "git",
-      "ref": "0edbe7528d17b13b673079ee4be5328d8f9b95c3",
+      "ref": "470a87ecd2233f337c63e9f2dcab91cc0160c27b",
       "url": "https://github.com/FunkinCrew/openfl"
     },
     {
       "name": "polymod",
       "type": "git",
-      "ref": "582ef40262c187a5e4d38f221df2a75b7565d09d",
+      "ref": "68bf65ba46b5cdafc3941a44222fa6d72de99d31",
       "url": "https://github.com/FunkinCrew/polymod"
     },
     {
@@ -217,7 +217,7 @@
     {
       "name": "thx.semver",
       "type": "git",
-      "ref": "7714c5ed3547cc996c9ee318aa360abbd7f85f74",
+      "ref": "9de477fa2bf6aa17528211afd61097cb113e3423",
       "url": "https://github.com/FunkinCrew/thx.semver"
     }
   ]

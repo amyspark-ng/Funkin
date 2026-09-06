@@ -142,6 +142,9 @@ class PolymodHandler
   {
     buildImports();
 
+    // The scripts that were stopped by an error are gone now, so let the new ones run.
+    funkin.modding.ScriptGuard.clear();
+
     try
     {
       if (modFileSystem == null) modFileSystem = buildFileSystem();
@@ -266,6 +269,10 @@ class PolymodHandler
   public static function loadScripts(async:Bool = true):lime.app.Future<
     {success:Int, total:Int}>
   {
+    #if FEATURE_CPPIA
+    polymod.hscript._internal.PolymodCppiaClassReference.expectedVersion = lime.app.Application.current.meta.get('version');
+    #end
+
     if (async)
     {
       return Polymod.registerAllScriptClassesAsync().then((result) ->
@@ -617,6 +624,19 @@ class PolymodHandler
 
     // Blacklists accessing the interp for polymod hscript
     Polymod.blacklistInstanceFields(polymod.hscript._internal.PolymodScriptClass.PolymodScriptClass, ['_interp']);
+
+    Polymod.blacklistDynamicFieldNames([
+      'resolveFlixelClasses',
+      'classTypes',
+      'unserialize',
+      'getLibrary',
+      'readObject',
+      'clearData',
+      'setLevelScore',
+      'setSongScore',
+      'applySongRank',
+      '_interp'
+    ]);
   }
 
   /**
@@ -634,6 +654,10 @@ class PolymodHandler
     result.push('.jj');
     result.push('.DS_Store');
     result.push('README.md');
+    // Sources and build scripts a mod ships for its compiled code. Not assets.
+    result.push('cppia-src');
+    result.push('build.sh');
+    result.push('build.ps1');
 
     return result;
   }
